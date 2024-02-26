@@ -1,0 +1,19 @@
+.footer-container {
+  display: flex;
+  background-color: black;
+  color: white;
+  margin: 0px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 110px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+@media only screen and (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    
+  }
+}

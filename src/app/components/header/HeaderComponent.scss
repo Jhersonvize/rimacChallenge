@@ -1,0 +1,32 @@
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.header-container__number {
+  float:right;
+}
+
+.header-container__info {
+  display: flex;
+  width: 400px;
+  height: 60px;
+  padding: 10px 0px 10px 0px;
+  justify-content: flex-end;
+  span {
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header-container__info {
+    span {
+      display: none;
+    }
+  }
+}

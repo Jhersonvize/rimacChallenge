@@ -1,0 +1,21 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+@font-face {
+  font-family: 'Br Sonoma' ;
+  src: url(./assets/BRSonoma-Medium.otf);
+}
+
+body {
+  background-color: #F8F9FF;
+  padding: 0;
+  margin: 0;
+  font-family: 'Br Sonoma';
+}
