@@ -9,7 +9,7 @@
 }
 
 .header-container__number {
-  float:right;
+  float: right;
 }
 
 .header-container__info {
@@ -24,9 +24,7 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .header-container__info {
-    span {
-      display: none;
-    }
+  .header-container__info .header-container__text {
+    display: none;
   }
 }

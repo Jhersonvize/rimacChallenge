@@ -9,7 +9,7 @@ export const HeaderComponent = () => {
         <img src={logo} alt="logo" style={{ width: '175px', height: '40px' }} />
       </div>
       <div className="header-container__info">
-        <span>¡Compra por este medio!</span>
+        <span className='header-container__text'>¡Compra por este medio!</span>
         <div>
           <img src={telephone} alt="phone" />
           <span className='header-container__number'>(01) 411 6000</span>
