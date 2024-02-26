@@ -41,7 +41,7 @@ export const ResumePage = () => {
             {userState.typeDocument + ': ' + userState.documentNumber}
           </span>
           <span className="card-resume__text">
-            {'Celular: ' + userState.documentNumber}
+            {'Celular: ' + userState.phoneNumber}
           </span>
           <br />
           <span className="card-resume__title">Plan elegido</span>
