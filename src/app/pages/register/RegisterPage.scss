@@ -234,13 +234,14 @@ input[type='number'] {
   }
   .hero-container__second-section {
     margin-left: 20px;
+    margin-right: 20px;
   }
 
   .hero-container--blur1 {
-    bottom: auto;
+    position: fixed;
   }
 
   .hero-container--blur2 {
-    right: auto;
+    position: fixed;
   }
 }
