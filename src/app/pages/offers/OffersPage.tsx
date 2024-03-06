@@ -15,14 +15,14 @@ import { useApiPlan } from '../../hooks/useApiPlan';
 const initialPersonTypeCard = [
   {
     img: IcProtectionLight,
-    person: 'Para mi',
+    person: 'Para mí',
     description:
       'Cotiza tu seguro de salud y agrega familiares si así lo deseas.',
     isActive: false,
   },
   {
     img: IcAddUserLight,
-    person: 'Para alguien mas',
+    person: 'Para alguien más',
     description:
       'Realiza una cotización para uno de tus familiares o cualquier persona.',
     isActive: false,

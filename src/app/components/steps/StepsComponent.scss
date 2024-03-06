@@ -1,4 +1,42 @@
-.steps {
+@mixin progressBar($background) {
+  height: 6px;
+  border-radius: 25px;
+  background-color: $background;
+}
+
+%step-active-desktop {
+  color: #141938;
+
+  span {
+    border: 2px solid #4F4FFF;
+    border-radius: 50%;
+    width: 25px;
+    height: 20px;
+    appearance: none;
+    padding: 2px 10px 2px 10px;
+    align-items: center;
+    background-color: #4F4FFF;
+    color: white;
+    margin-right: 10px;
+  }
+}
+
+%step-desktop {
+  color: #7981B2;
+
+  span {
+    border: 2px solid #7981B2;
+    border-radius: 50%;
+    width: 25px;
+    height: 20px;
+    appearance: none;
+    padding: 2px 10px 2px 10px;
+    align-items: center;
+    margin-right: 10px;
+  }
+}
+
+@mixin steps-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,68 +46,64 @@
   height: 50px;
 }
 
-.offer {
-  color: #7981B2;
-  span {
-    border: 2px solid #7981B2;
-    border-radius: 50%;
-    width:25px;
-    height: 20px;
-    appearance: none;
-    padding: 2px 10px 2px 10px;
-    align-items: center;
-    margin-right: 10px;
-  }
+.steps {
+  @include steps-container;
 }
 
-.offer--active {
-  color: #141938;
-  span {
-    border: 2px solid #4F4FFF;
-    border-radius: 50%;
-    width:25px;
-    height: 20px;
-    appearance: none;
-    padding: 2px 10px 2px 10px;
-    align-items: center;
-    background-color:#4F4FFF ;
-    color: white;
-    margin-right: 10px;
-  }
-}
-
+.offer,
 .resume {
-  color: #7981B2;
-  span {
-    border: 2px solid #7981B2;
-    border-radius: 50%;
-    width:25px;
-    height: 20px;
-    appearance: none;
-    padding: 2px 10px 2px 10px;
-    align-items: center;
-    margin-right: 10px;
-  }
+  @extend %step-desktop;
 }
 
+.offer--active,
 .resume--active {
-  color: #141938;
-  span {
-    border: 2px solid #4F4FFF;
-    border-radius: 50%;
-    width:25px;
-    height: 20px;
-    appearance: none;
-    padding: 2px 10px 2px 10px;
-    align-items: center;
-    background-color:#4F4FFF ;
-    color: white;
-    margin-right: 10px;
-  }
-  
+  @extend %step-active-desktop;
 }
+
 .separador {
   margin: 10px;
   color: #4F4FFF;
   font-weight: 1000;
+}
+
+.steps-mobile {
+  display: none
+}
+
+.steps-mobile__progress-bar {
+  @include progressBar(#D7DBF5);
+  width: 60%;
+}
+
+.progress-bar--step1 {
+  @include progressBar(#4F4FFF);
+  width: 50%;
+}
+
+.progress-bar--step2 {
+  @include progressBar(#4F4FFF);
+  width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  .steps {
+    display: none;
+  }
+
+  .steps-mobile {
+    @include steps-container;
+    gap: 8px;
+
+    span {
+      font-weight: 900;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+    }
+  }
+
+  .steps-mobile__btn-back {
+    margin-left: 10px;
+    cursor: pointer;
+  }
 }
