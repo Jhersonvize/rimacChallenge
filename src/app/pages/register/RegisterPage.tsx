@@ -62,10 +62,18 @@ export const RegisterPage = () => {
           <img className="hero-container__first-section" src={hero} alt="" />
         </section>
         <section className="hero-container__second-section">
-          <span className="hero-container__tag">Seguro Salud Flexible</span>
-          <h1>
-            <strong>Creado para ti y tu familia</strong>
-          </h1>
+          <div className='hero-container_mobile-section'>
+            <article>
+              <span className="hero-container__tag">Seguro Salud Flexible</span>
+              <h1>
+                <strong>Creado para ti y tu familia</strong>
+              </h1>
+            </article>
+
+            <img className="hero-container__mobile-img" src={hero} alt="" />
+          </div>
+
+
           <h4>
             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra
             asesoría. 100% online.
@@ -144,7 +152,7 @@ export const RegisterPage = () => {
                 Acepto la Política Comunicaciones Comerciales
               </label>
             </div>
-            <a href="/" className="form-section__terms">
+            <a href="#top" className="form-section__terms">
               Aplican Términos y Condiciones.
             </a>
             <button type="submit">Cotiza Aqui</button>

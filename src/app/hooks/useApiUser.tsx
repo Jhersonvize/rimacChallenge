@@ -9,7 +9,7 @@ export const useApiUser = () => {
 
   useEffect(() => {
     getData(url);
-  },[] );
+  }, []);
 
   const getData = (url: string) => {
     axios({

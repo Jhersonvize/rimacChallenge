@@ -2,8 +2,6 @@ import './OffersPage.scss';
 import { HeaderComponent } from '../../components/header/HeaderComponent';
 import { StepsComponent } from '../../components/steps/StepsComponent';
 import { Link } from 'react-router-dom';
-import { useApiPlan } from '../../hooks/useApiPlan';
-import { useState } from 'react';
 import { IPlanList } from '../../models/planModel';
 import { useSelector } from 'react-redux';
 import { IUser } from '../../models/userModel';
@@ -12,6 +10,8 @@ import IcAddUserLight from '../../../assets/IcAddUserLight.svg';
 import backBtn from '../../../assets/Icon-button.svg';
 import { IStateSelector } from '../../models/selectorModel';
 import { CardPlanComponent } from '../../components/card-plan/CardPlanComponent';
+import { useMemo, useState } from 'react';
+import { useApiPlan } from '../../hooks/useApiPlan';
 const initialPersonTypeCard = [
   {
     img: IcProtectionLight,
@@ -29,6 +29,10 @@ const initialPersonTypeCard = [
   },
 ];
 export const OffersPage = () => {
+  useMemo(() => {
+    initialPersonTypeCard.forEach(card => card.isActive=false)
+  }, [])
+  
   const { data } = useApiPlan();
   const [dataCards, setDataCards] = useState<IPlanList[]>([]);
   const [personTypeCard, setPersonTypeCard] = useState(initialPersonTypeCard);

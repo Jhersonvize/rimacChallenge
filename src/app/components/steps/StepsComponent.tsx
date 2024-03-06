@@ -21,7 +21,7 @@ export const StepsComponent = () => {
         </section>
         <section className="separador">- - -</section>
         <section className={step === 2 ? 'resume--active' : 'resume'}>
-        <span>2</span> Resumen
+          <span>2</span> Resumen
         </section>
       </nav>
     </div>

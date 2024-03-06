@@ -9,7 +9,7 @@ export const useApiPlan = () => {
 
   useEffect(() => {
     getData(url);
-  },[] );
+  }, []);
 
   const getData = (url: string) => {
     axios({

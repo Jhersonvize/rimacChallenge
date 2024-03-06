@@ -8,7 +8,7 @@ import planSlice from './slices/plan/planSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user','plan'],
+  whitelist: ['user', 'plan'],
 };
 
 const rootReducer = combineReducers({
@@ -19,9 +19,9 @@ const persist = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persist,
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
