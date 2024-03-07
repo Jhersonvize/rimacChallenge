@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage/session';
 import persistReducer from 'redux-persist/lib/persistReducer';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/lib/constants';
 import planSlice from './slices/plan/planSlice';
+import { persistStore } from 'redux-persist';
 
 const persistConfig = {
   key: 'storage',
@@ -25,3 +26,5 @@ export const store = configureStore({
       },
     }),
 });
+
+export const persistor=persistStore(store);
