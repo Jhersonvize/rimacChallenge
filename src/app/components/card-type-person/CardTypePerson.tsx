@@ -1,17 +1,24 @@
 import './CardTypePerson.scss';
-import { useMemo, useState } from 'react';
-import { useApiPlan } from '../../hooks/useApiPlan';
+import { useEffect, useMemo, useState } from 'react';
+import { useApi } from '../../hooks/useApi';
 import { IPlanList } from '../../models/planModel';
 import { CardPlanComponent } from '../card-plan/CardPlanComponent';
 import { initialPersonTypeCard } from '../../utils/initialValues';
+import { APIS } from '../../utils/constants';
 
 export const CardTypePerson = () => {
     useMemo(() => {
         initialPersonTypeCard.forEach(card => card.isActive = false)
-    }, [])
+    }, []);
+    const { data, getData } = useApi(APIS.PLAN, false);
     const [personTypeCard, setPersonTypeCard] = useState(initialPersonTypeCard);
-    const { data, getData } = useApiPlan();
     const [dataCards, setDataCards] = useState<IPlanList[]>([]);
+    useEffect(() => {
+        if (data?.list) {
+            setDataCards(data.list);
+        }
+    }, [data])
+
     const selectTypePerson = async (key: number) => {
         const nextPersonTypeCard = personTypeCard.map((card, i) => {
             if (key === i && !card.isActive) {
@@ -23,9 +30,6 @@ export const CardTypePerson = () => {
         });
         setPersonTypeCard(nextPersonTypeCard);
         await getData();
-        if (data?.current?.list) {
-            setDataCards(data.current?.list);
-        }
     };
     return (
         <>

@@ -1,19 +1,21 @@
 import './RegisterForm.scss'
 import { ChangeEvent, FormEvent, useReducer } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useApiUser } from '../../hooks/useApiUser';
+import { useApi } from '../../hooks/useApi';
 import { useDispatch } from 'react-redux';
 import { currentUser } from '../../store/slices/user/userSlice';
 import { reducerErrorForm, reducerForm } from '../../utils/reducers';
 import { initialErrorForm, initialForm } from '../../utils/initialValues';
+import { APIS } from '../../utils/constants';
 
 
 export const RegisterForm = () => {
     const navigate = useNavigate();
-    const { data, error } = useApiUser();
+    const { data, error } = useApi(APIS.USER);
     const userDispatch = useDispatch();
     const [stateForm, dispatchForm] = useReducer(reducerForm, initialForm);
     const [errorForm, dispatchErrorForm] = useReducer(reducerErrorForm, initialErrorForm)
+
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!error && errorForm.every(form => form.isValid === true)) {
@@ -21,6 +23,7 @@ export const RegisterForm = () => {
             navigate('/offers');
         }
     };
+
     const handleChange = (
         e: ChangeEvent<HTMLSelectElement | HTMLInputElement>
     ) => {
