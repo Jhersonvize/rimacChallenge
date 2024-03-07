@@ -4,7 +4,6 @@ import storage from 'redux-persist/lib/storage/session';
 import persistReducer from 'redux-persist/lib/persistReducer';
 import planSlice from './slices/plan/planSlice';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from 'redux-persist';
-import { thunk } from 'redux-thunk';
 
 const persistConfig = {
   key: 'storage',
