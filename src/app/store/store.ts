@@ -2,9 +2,9 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userSlice from './slices/user/userSlice';
 import storage from 'redux-persist/lib/storage/session';
 import persistReducer from 'redux-persist/lib/persistReducer';
-import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/lib/constants';
 import planSlice from './slices/plan/planSlice';
-import { persistStore } from 'redux-persist';
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from 'redux-persist';
+import { thunk } from 'redux-thunk';
 
 const persistConfig = {
   key: 'storage',
@@ -16,9 +16,9 @@ const rootReducer = combineReducers({
   user: userSlice,
   plan: planSlice
 });
-const persist = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
-  reducer: persist,
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -27,4 +27,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor=persistStore(store);
+export const persistor = persistStore(store);
