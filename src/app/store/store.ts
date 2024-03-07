@@ -6,7 +6,7 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist
 import planSlice from './slices/plan/planSlice';
 
 const persistConfig = {
-  key: 'root',
+  key: 'storage',
   storage,
   whitelist: ['user', 'plan'],
 };
