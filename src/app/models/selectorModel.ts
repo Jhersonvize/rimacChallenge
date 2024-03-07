@@ -1,5 +1,5 @@
-import { IPlanList} from './planModel';
-import { IUser} from './userModel';
+import { IPlanList } from './planModel';
+import { IUser } from './userModel';
 
 export interface IStateSelector {
   user: IUser;

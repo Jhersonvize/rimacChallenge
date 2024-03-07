@@ -1,28 +1,22 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { IPlan } from '../models/planModel';
 
 export const useApiPlan = () => {
   const [error, setError] = useState<string>('');
-  const [data, setData] = useState<IPlan>();
-  const url = 'https://rimac-front-end-challenge.netlify.app/api/plans.json'
+  const data = useRef<IPlan>();
 
-  useEffect(() => {
-    getData(url);
-  }, []);
+  const getData = async () => {
+    const url = 'https://rimac-front-end-challenge.netlify.app/api/plans.json'
 
-  const getData = (url: string) => {
-    axios({
-      method: 'GET',
-      url,
-    })
+    await axios.get(url)
       .then((response) => {
         setError('');
-        setData(response?.data);
+        data.current = response?.data;
       })
       .catch((error) => {
         setError(error.message);
       })
   };
-  return { data, error };
+  return { data, error, getData };
 };

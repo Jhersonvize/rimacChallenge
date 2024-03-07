@@ -12,16 +12,13 @@ export const useApiUser = () => {
   }, []);
 
   const getData = (url: string) => {
-    axios({
-      method: 'GET',
-      url,
-    })
+    axios.get(url)
       .then((response) => {
         setError('');
         setData(response?.data);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error?.message);
       })
   };
   return { data, error };

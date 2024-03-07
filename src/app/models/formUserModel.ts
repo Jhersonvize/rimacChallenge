@@ -9,3 +9,8 @@ export interface IFormUserAction {
   field: string;
   payload: string;
 }
+
+export interface IFormUserError {
+  field: string;
+  isValid: boolean;
+}

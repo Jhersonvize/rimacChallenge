@@ -1,0 +1,106 @@
+$color-gray-dark: #5e6488;
+$color-gray-light: #b4b4b4;
+$color-white: #fff;
+$color-black: #03050f;
+$color-blue-darker: #141938;
+$color-green-dark: #389e0d;
+$color-purple: #4f4fff;
+$color-green-light: #7df0ba;
+$color-gray-boxshadow: #aeacf359;
+$color-gray-del: #7981b2;
+$color-red-rimac: #ff1c44;
+
+%card-box-shadow {
+    box-shadow: 0px 1px 32px 0px $color-gray-boxshadow;
+}
+
+.card-person-container {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.card-person-container__card {
+    @extend %card-box-shadow;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    border: solid transparent 3px;
+    border-radius: 24px;
+    width: 252px;
+    height: 212px;
+    cursor: pointer;
+    user-select: none;
+    padding: 16px 24px 40px 24px;
+    align-items: flex-start;
+
+    img {
+        height: 48px;
+        width: 48px;
+    }
+
+    span {
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: -0.2px;
+        color: #141938;
+    }
+}
+
+.card-person-container__card--active {
+    padding: 16px 24px 40px 24px;
+    align-items: flex-start;
+    @extend %card-box-shadow;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: $color-white;
+    border: solid $color-blue-darker 3px;
+    border-radius: 24px;
+    width: 252px;
+    height: 212px;
+    user-select: none;
+
+    span {
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: -0.2px;
+        color: #141938;
+    }
+}
+
+.card-person-container__checkbox {
+    align-self: flex-end;
+    padding: 10px;
+    cursor: pointer;
+    background-color: $color-white;
+    background-image: url('../../../assets/ic_check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    appearance: none;
+    border: 2px solid #888;
+    border-radius: 50%;
+}
+
+.card-person-container__checkbox:checked {
+    background-color: $color-green-dark;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .card-person-container {
+        flex-direction: column;
+        align-content: space-around;
+    }
+
+    .card-person-container__card {
+        width: 90%;
+    }
+
+    .card-person-container__card--active {
+        width: 90%;
+    }
+}

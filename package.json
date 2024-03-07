@@ -1,6 +1,6 @@
 {
   "name": "rimac-app",
-  "version": "1.0.0",
+  "version": "1.0.1np",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",

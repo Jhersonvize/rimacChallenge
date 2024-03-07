@@ -6,7 +6,7 @@ export const HeaderComponent = () => {
   return (
     <nav className="header-container">
       <div className="header-container__logo">
-        <img src={logo} alt="logo" style={{ width: '175px', height: '40px' }} />
+        <img src={logo} alt="logo" />
       </div>
       <div className="header-container__info">
         <span className='header-container__text'>¡Compra por este medio!</span>
